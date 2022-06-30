@@ -18,15 +18,15 @@ end
 puts 'Writing new posts..........................'
 users = User.all
 10.times do
-  Post.create(post_content: Faker::Lorem.paragraph, user: users.sample)
+  Post.create(post_content: Faker::Lorem.paragraph(sentence_count: 10), user: users.sample)
 end
 
 # _________________________________________________________________
 
 puts 'Commenting the posts..........................'
-
+posts = Post.all
 10.times do
-  Comment.create(comment_content: Faker::Lorem.sentences, user: users.sample)
+  Comment.create(comment_content: Faker::Lorem.sentences, user: users.sample, post: posts.sample)
 end
 
 # _________________________________________________________________
