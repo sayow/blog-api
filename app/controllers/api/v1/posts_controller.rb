@@ -6,6 +6,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def show
+    @subcomment = Subcomment.find(params[:id])
   end
 
   def update
@@ -18,7 +19,6 @@ class Api::V1::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user = current_user
     if @post.save
       render :show, status: :created
     else
@@ -34,11 +34,11 @@ class Api::V1::PostsController < ApplicationController
   private
 
   def set_post
-    @post = post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:post_content)
+    params.require(:post).permit(:post_content, :user_id)
   end
 
   def render_error
