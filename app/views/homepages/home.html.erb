@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.3/examples/signin/">
+
+    <title>Signin Template for Bootstrap</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+    <!-- JavaScript -->
+    <script src="../assets/js/bootstrap.js">
+    </script>
+
+    <!-- Local fallback -->
+
+</head>
+
+
+<%= render 'shared/navbar' %>
+
+<h1 class= "h1">My new blog</h1>
+
+<h2 class= "h1">All my posts: </h2>
+
+<form action="/posts" method="GET" class="form-inline">
+
+  <div class="input-group input-group">
+    <input type="text" name="word" class="form-control">
+    <span class="input-group-btn">
+      <input type="submit" value="Play" class="btn btn-default">
+    </span>
+  </div>
+</form>
