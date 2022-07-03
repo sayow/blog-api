@@ -19,7 +19,7 @@ end
 
 puts 'Writing new posts..........................'
 users = User.all
-10.times do
+30.times do
   Post.create(post_content: Faker::Lorem.paragraph(sentence_count: 10), user: users.sample)
 end
 

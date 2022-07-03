@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-json.extract! @post, :post_content, :user, :created_at
+json.extract! @post, :post_content, :user, :created_at, :id
 json.user @post.user.name
 json.created_at @post.created_at.strftime('%F')
 
