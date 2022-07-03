@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: 'posts#home', as: :list_of_posts
+  root to: 'posts#home'
   get '/show/:id', to: 'posts#show'
 
   namespace :api, defaults: { format: :json } do
