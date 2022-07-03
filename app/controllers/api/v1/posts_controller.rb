@@ -42,7 +42,7 @@ module Api
       end
 
       def post_params
-        params.require(:post).permit(:post_content, :user_id)
+        params.require(:post).permit(:post_content, :user_id, :id)
       end
 
       def render_error

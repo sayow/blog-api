@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post.find(params[:id])
+    @get_posts = get_posts?
+    @post = @post.find(params[:id])
   end
 
 
