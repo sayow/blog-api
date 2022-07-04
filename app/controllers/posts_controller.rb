@@ -5,7 +5,13 @@ class PostsController < ApplicationController
   before_action :set_get_posts, only: [:show, :edit, :update, :destroy]
 
   def index
-    @get_posts = get_posts?
+    url = 'http://localhost:3000/api/v1/posts'
+    posts = URI.open(url).read
+    @post = JSON.parse(posts)
+    @posts = Post.all
+    @comments = Comment.all
+    @subcomments = Subcomment.all
+
   end
 
   def show
@@ -42,18 +48,15 @@ class PostsController < ApplicationController
 
   private
 
-  def get_posts?
-    url = 'http://localhost:3000/api/v1/posts'
-    posts = URI.open(url).read
-    @post = JSON.parse(posts)
-  end
-
   def get_posts_params
-    params.require(@get_post).permit(:post_content, :user_id, :id)
+    params.require(@posts).permit(:post_content, :user_id, :id)
+    params.require(@user).permit(:name)
   end
 
   def set_get_posts
-    @get_posts = Post.find(params[:id])
+    @posts = Post.find(params[:id])
+    @comments = Comment.find(params[:id])
+    @subcomments = Subcomment.find(params[:id])
   end
 
 

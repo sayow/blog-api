@@ -30,6 +30,14 @@
 
 <%= render 'shared/navbar' %>
 
-  <h1><%= @get_posts["user"] %></h1>
-  <h2><%= @get_posts["post_content"] %></h2>
-  <h3><%= @get_posts["created_at"].strftime('%F') %></h3>
+<h1><%= @posts["user"] %></h1>
+<h2><%= @posts["post_content"] %></h2>
+<h6><%= @posts["created_at"].strftime('%F') %></h6>
+
+<h3><%= @comments["comment_content"] %></h3>
+<h2><%= @comments["user"] %></h2>
+<h6><%= @posts["created_at"].strftime('%F') %></h6>
+
+<h3><%= @subcomments["subcomment_content"] %></h3>
+<h2><%= @subcomments["user"] %></h2>
+<h6><%= @posts["created_at"].strftime('%F') %></h6>

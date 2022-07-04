@@ -79,3 +79,12 @@ element.style {
 .table-bordered {
   background-color: white !important;
 }
+
+
+.ul {
+  list-style-type: none;
+}
+
+.li {
+  list-style-type: none;
+}
