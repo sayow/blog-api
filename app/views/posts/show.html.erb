@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Post</title>
   <meta charset="utf-8">
@@ -20,23 +21,23 @@
   <!-- JavaScript -->
   <script src="../assets/js/bootstrap.js">
   </script>
-   <script src="../assets/js/datatables.min.js">
+  <script src="../assets/js/datatables.min.js">
   </script>
-     <script src="../assets/js/jquery.js">
+  <script src="../assets/js/jquery.js">
   </script>
-
-
 
 </head>
 
 <%= render 'shared/navbar' %>
 
+<h1><%= @posts["user"] %></h1>
+<h2><%= @posts["post_content"] %></h2>
+<h6><%= @posts["created_at"].strftime('%F') %></h6>
 
-<% @post.each do |post| %>
-  <tr>
-    <td><%= post["user"] %></td>
-    <td><%= post["post_content"] %></td>
-    <td><%= post["created_at"] %></td>
-    <td>
-  </tr>
-<% end %>
+<h3><%= @comments["comment_content"] %></h3>
+<h2><%= @comments["user"] %></h2>
+<h6><%= @posts["created_at"].strftime('%F') %></h6>
+
+<h3><%= @subcomments["subcomment_content"] %></h3>
+<h2><%= @subcomments["user"] %></h2>
+<h6><%= @posts["created_at"].strftime('%F') %></h6>

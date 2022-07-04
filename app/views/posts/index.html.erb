@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>My new blog</title>
   <meta charset="utf-8">
@@ -20,52 +21,47 @@
   <!-- JavaScript -->
   <script src="../assets/js/bootstrap.js">
   </script>
-   <script src="../assets/js/datatables.min.js">
+  <script src="../assets/js/datatables.min.js">
   </script>
-     <script src="../assets/js/jquery.js">
+  <script src="../assets/js/jquery.js">
   </script>
-
-
 
 </head>
 
 <%= render 'shared/navbar' %>
-
 
 <body>
 
   <table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
       <tr>
-          <th>Author</th>
-          <th>Content</th>
-          <th>Created at</th>
-          <th>Options</th>
+        <th>Author</th>
+        <th>Content</th>
+        <th>Created at</th>
+        <th>Options</th>
       </tr>
     </thead>
     <tbody>
-      <% @get_posts.each do |post| %>
-        <tr>
-          <td><%= post["user"] %></td>
-          <td><%= post["post_content"] %></td>
-          <td><%= post["created_at"] %></td>
-          <td>
-            <button class="badge rounded-pill text-bg-primary"> <%= link_to "", "/show_path#{@post.find(params["id"])}" %><i class="bi bi-eye"></i></button>
-            <button class="badge rounded-pill text-bg-primary"><i class="bi bi-pencil"></i></button>
-            <button class="badge rounded-pill text-bg-primary"><i class="bi bi-pencil"></i></button>
-            <button class="badge rounded-pill text-bg-primary"><i class="bi bi-eraser"></i></button>
+      <% @posts.each do |post| %>
+      <tr>
+        <td><%= post["user"] %></td>
+        <td><%= post["post_content"] %></td>
+        <td><%= post["created_at"] %></td>
+        <td>
+          <button class="badge rounded-pill text-bg-primary"><%= link_to "", post_path(@posts) %><i class="bi bi-eye"></i></button>
+          <button class="badge rounded-pill text-bg-primary"><%= link_to "", post_path(@posts) %><i class="bi bi-pencil"></i></button>
+          <button class="badge rounded-pill text-bg-primary"><%= link_to "", post_path(@posts) %><i class="bi bi-eraser"></i></button>
 
-
-          </td>
-        </tr>
+        </td>
+      </tr>
       <% end %>
-        </tbody>
+    </tbody>
   </table>
 
   <script type="text/javascript">
-  $(document).ready(function () {
-    $('#example').DataTable();
-  });
+    $(document).ready(function() {
+      $('#example').DataTable();
+    });
   </script>
 
 </body>
