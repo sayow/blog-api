@@ -2,11 +2,10 @@ require 'json'
 require 'open-uri'
 
 class PostsController < ApplicationController
-  before_action :set_get_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_get_posts, only: [:show, :edit, :update, :destroy]
 
   def index
     @get_posts = get_posts?
-    @get_posts
   end
 
   def show
@@ -18,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @new_post = Post.new(get_post_params)
-    if @get_post.save
+    if @new_post.save
       redirect_to posts_path
     else
       render :new
@@ -29,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @get_post.update(get_post_params)
+    if @get_posts.update(get_posts_params)
       redirect_to home_path
     else
       render :edit
@@ -37,7 +36,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @get_post.destroy
+    @get_posts.destroy
     redirect_to home_path
   end
 
@@ -49,12 +48,12 @@ class PostsController < ApplicationController
     @post = JSON.parse(posts)
   end
 
-  def get_post_params
-    params.require(:get_post).permit(:post_content, :user_id, :id)
+  def get_posts_params
+    params.require(@get_post).permit(:post_content, :user_id, :id)
   end
 
-  def set_get_post
-    @get_post = Post.find(params[:id])
+  def set_get_posts
+    @get_posts = Post.find(params[:id])
   end
 
 
